@@ -1,0 +1,73 @@
+body{
+    background-color: black;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+p{
+    text-align: center;
+}
+a{
+    text-align: center;
+}
+img{
+    display: flex;
+    margin: auto;
+}
+.block_one{
+    display: flex;
+    flex-direction: column;
+    color:whitesmoke;
+    font: italic small-caps bold 16px/2 cursive;
+
+}
+.block_two{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: whitesmoke;
+    font: italic small-caps bold 16px/2 cursive;
+
+}
+.header{
+    display: flex;
+    outline: 2px solid rgb(53, 177, 223);
+    border: 3px solid rgb(53, 177, 223);
+    border-radius: 10px;
+    padding: auto;
+}
+.blocks{
+    outline: 2px solid rgb(53, 177, 223);
+    border: 1px solid rgb(53, 177, 223);
+    border-radius: 10px;
+}
+.header_block{
+    position: sticky;
+    top:0px;
+    background-color: black;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font: italic small-caps bold 20px/2 cursive;
+}
+.block_three{
+    display: flex;
+    color:whitesmoke;
+    flex-direction: column;
+    font: italic small-caps bold 16px/2 cursive;
+}
+.big_diploma{
+    width: 80%;
+    height: auto;
+}
+h1{
+    font: italic small-caps bold 28px/2 cursive;
+    text-align: center;
+}
+.block_four{
+    display: flex;
+    color:whitesmoke;
+    flex-direction: column;
+    font: italic small-caps bold 16px/2 cursive;
+}
