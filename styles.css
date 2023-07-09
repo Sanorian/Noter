@@ -1,73 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
 body{
-    background-color: black;
-    width: 90%;
-    padding-left: 5%;
-    padding-right: 5%;
+    width: 45vw;
+    height: 70vh;
+    margin-left: 30vw;
+    margin-right: 25vw;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+    font-family: 'Roboto', sans-serif;
 }
-p{
-    text-align: center;
+.exput{
+    height: 20%;
+    align-items: center;
+    align-self: center;
 }
-a{
-    text-align: center;
+button{
+    font-family: 'Roboto', sans-serif;
+    background-color: #D581D6;
+    font-size: 36pt;
 }
-img{
-    display: flex;
-    margin: auto;
+input{
+    font-family: 'Roboto', sans-serif;
+    font-size: 36pt;
+    width: 30vw;
+    background-color: #D581D6;
 }
-.block_one{
+.main{
+    align-items: center;
+    background-color: #EE8FF0;
+    padding-top: 5vh;
+    padding-bottom: 10vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
     display: flex;
     flex-direction: column;
-    color:whitesmoke;
-    font: italic small-caps bold 16px/2 cursive;
-
+    border: 2px solid black;
+    border-radius: 3vh;
+    box-shadow: 1vh 1vh #AF6AB0;
 }
-.block_two{
+.input{
+    align-self: center;
+    align-items: center;
+    margin-top: 10%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    color: whitesmoke;
-    font: italic small-caps bold 16px/2 cursive;
-
-}
-.header{
-    display: flex;
-    outline: 2px solid rgb(53, 177, 223);
-    border: 3px solid rgb(53, 177, 223);
-    border-radius: 10px;
-    padding: auto;
-}
-.blocks{
-    outline: 2px solid rgb(53, 177, 223);
-    border: 1px solid rgb(53, 177, 223);
-    border-radius: 10px;
-}
-.header_block{
-    position: sticky;
-    top:0px;
-    background-color: black;
-    color: whitesmoke;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font: italic small-caps bold 20px/2 cursive;
-}
-.block_three{
-    display: flex;
-    color:whitesmoke;
     flex-direction: column;
-    font: italic small-caps bold 16px/2 cursive;
+    justify-content: center;
 }
-.big_diploma{
-    width: 80%;
-    height: auto;
-}
-h1{
-    font: italic small-caps bold 28px/2 cursive;
-    text-align: center;
-}
-.block_four{
+.upper_part{
     display: flex;
-    color:whitesmoke;
     flex-direction: column;
-    font: italic small-caps bold 16px/2 cursive;
+}
+.input_box{
+    margin-bottom: 5%
+}
+.reboot{
+    padding-bottom: 5vh;
 }
