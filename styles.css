@@ -7,6 +7,7 @@ body{
     margin-top: 15vh;
     margin-bottom: 15vh;
     font-family: 'Roboto', sans-serif;
+    font-size: 2.5vh;
 }
 .exput{
     height: 20%;
@@ -16,11 +17,11 @@ body{
 button{
     font-family: 'Roboto', sans-serif;
     background-color: #D581D6;
-    font-size: 36pt;
+    font-size: 8vh;
 }
 input{
     font-family: 'Roboto', sans-serif;
-    font-size: 36pt;
+    font-size: 8vh;
     width: 30vw;
     background-color: #D581D6;
 }
