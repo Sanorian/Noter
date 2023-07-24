@@ -1,30 +1,18 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Угадай число</title>
+    <title>Noter</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="main">
-        <div class="upper_part">
-            <div class="reboot">
-                <button onclick="rebootGame()">🔄</button>
-            </div>
-            <div class="exput" id="exput_id"></div>
-        </div>
-        <div class="input">
-            <div class="input_box">
-                <input id="input_id">
-            </div>
-            <div>
-                <button onclick="estimate()">
-                    Оценить
-                </button>
-            </div>
+        <div class="login" id="login"></div>
+        <div class="main_space">
+            <textarea id="notes"></textarea>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
