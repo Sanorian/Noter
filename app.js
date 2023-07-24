@@ -1,12 +1,7 @@
-let note='', localNote = localStorage.getItem('note');
-document.getElementById('notes').textContent= localNote;
+let note, localNote = localStorage.getItem('note'), textarea = document.getElementById('notes');
+textarea.textContent = localNote;
 
-function saveWritten(){
-  note = document.getElementById('notes').value;
+textarea.oninput = function() {
+  note = textarea.value;
   localStorage.setItem('note', note);
 }
-
-setInterval(function(){
-  note = document.getElementById('notes').value;
-  localStorage.setItem('note', note);
-},10);
