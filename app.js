@@ -1,5 +1,5 @@
 let note='', localNote = localStorage.getItem('note');
-document.getElementById('notes').textContent= note;
+document.getElementById('notes').textContent= loacalNote;
 
 function saveWritten(){
   note = document.getElementById('notes').value;
