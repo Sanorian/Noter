@@ -39,3 +39,21 @@
     resize: none;
     color: #DDE6ED;
 }
+button{
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 5vmin;
+    font-size: 2vmin;
+}
+.button_light{
+    border: 0vmin;
+    color: #354259;
+    background-color: #EEE3CB;
+}
+.button_dark{
+    border: 0vmin;
+    color: #DDE6ED;
+    background-color: #526D82;
+}
