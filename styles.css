@@ -40,6 +40,7 @@
     color: #DDE6ED;
 }
 button{
+    border: 0vmin;
     padding-left: 2%;
     padding-right: 2%;
     padding-top: 1%;
@@ -48,12 +49,10 @@ button{
     font-size: 4vmin;
 }
 .button_light{
-    border: 0vmin;
     color: #354259;
     background-color: #EEE3CB;
 }
 .button_dark{
-    border: 0vmin;
     color: #DDE6ED;
     background-color: #526D82;
 }
