@@ -1,6 +1,6 @@
 let note, localNote = localStorage.getItem('note'), textarea = document.getElementById('notes'), change_mode_button = document.getElementById('change_mode'), mode=(localStorage.getItem('mode')??'light'), clear_button = document.getElementById('clear');
 
-textarea.textContent = (localNote ?? 'Попробуйте что-нибудь написать');
+textarea.textContent = (localNote ?? 'Try to write something');
 if (mode=='dark')  {
   document.getElementById('main').classList.remove('main_light');
   document.getElementById('main').classList.add('main_dark');
