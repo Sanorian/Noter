@@ -1,4 +1,4 @@
-let note, localNote = localStorage.getItem('note'), textarea = document.getElementById('notes'), change_mode_button = document.getElementById('change_mode'), mode=(localStorage.getItem('mode')??'light');
+let note, localNote = localStorage.getItem('note'), textarea = document.getElementById('notes'), change_mode_button = document.getElementById('change_mode'), mode=(localStorage.getItem('mode')??'light'), clear_button = document.getElementById('clear');
 
 textarea.textContent = (localNote ?? 'Попробуйте что-нибудь написать');
 if (mode=='dark')  {
@@ -10,6 +10,8 @@ if (mode=='dark')  {
   textarea.classList.add('textarea_dark');
   change_mode_button.classList.remove('button_light');
   change_mode_button.classList.add('button_dark');
+  clear_button.classList.remove('button_light');
+  clear_button.classList.add('button_dark');
 } else {
   document.getElementById('main').classList.remove('main_dark');
   document.getElementById('main').classList.add('main_light');
@@ -19,6 +21,8 @@ if (mode=='dark')  {
   textarea.classList.add('textarea_light');
   change_mode_button.classList.remove('button_dark');
   change_mode_button.classList.add('button_light');
+  clear_button.classList.remove('button_dark');
+  clear_button.classList.add('button_light');
 }
 
 textarea.oninput = function() {
@@ -35,6 +39,8 @@ change_mode_button.onclick = function(){
     textarea.classList.add('textarea_dark');
     change_mode_button.classList.remove('button_light');
     change_mode_button.classList.add('button_dark');
+    clear_button.classList.remove('button_light');
+    clear_button.classList.add('button_dark');
     localStorage.setItem('mode', 'dark');
   } else {
     document.getElementById('main').classList.remove('main_dark');
@@ -45,6 +51,11 @@ change_mode_button.onclick = function(){
     textarea.classList.add('textarea_light');
     change_mode_button.classList.remove('button_dark');
     change_mode_button.classList.add('button_light');
+    clear_button.classList.remove('button_dark');
+    clear_button.classList.add('button_light');
     localStorage.setItem('mode', 'light');
   }
+}
+clear_button.onclick = function(){
+  textarea.value = '';
 }
