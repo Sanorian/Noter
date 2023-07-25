@@ -58,4 +58,5 @@ change_mode_button.onclick = function(){
 }
 clear_button.onclick = function(){
   textarea.value = '';
+  localStorage.setItem('note', '');
 }
