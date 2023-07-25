@@ -19,24 +19,21 @@
     margin-left: 15%;
     margin-right: 15%;
 }
-.textarea_light{
-    background-color: #EEE3CB;
+textarea{
+    border: 0vmin;
     font-family: 'Nunito', sans-serif;
     font-size: 5vmin;
     margin-top: 5%;
     width: 100%;
     height: 80vh;
     resize: none;
+}
+.textarea_light{
+    background-color: #EEE3CB;
     color: #354259;
 }
 .textarea_dark{
     background-color: #526D82;
-    font-family: 'Nunito', sans-serif;
-    font-size: 5vmin;
-    margin-top: 5%;
-    width: 100%;
-    height: 80vh;
-    resize: none;
     color: #DDE6ED;
 }
 button{
