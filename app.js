@@ -1,4 +1,10 @@
-let note, localNote = localStorage.getItem('note'), textarea = document.getElementById('notes'), change_mode_button = document.getElementById('change_mode'), mode=(localStorage.getItem('mode')??'light'), clear_button = document.getElementById('clear');
+let note, 
+  localNote = localStorage.getItem('note'), 
+  textarea = document.getElementById('notes'), 
+  change_mode_button = document.getElementById('change_mode'), 
+  mode=(localStorage.getItem('mode')??'light'), 
+  clear_button = document.getElementById('clear'),
+  download_button=document.getElementById('download');
 
 textarea.textContent = (localNote ?? 'Try to write something');
 if (mode=='dark')  {
@@ -12,6 +18,8 @@ if (mode=='dark')  {
   change_mode_button.classList.add('button_dark');
   clear_button.classList.remove('button_light');
   clear_button.classList.add('button_dark');
+  download_button.classList.remove('button_light');
+  download_button.classList.add('button_dark');
 } else {
   document.getElementById('main').classList.remove('main_dark');
   document.getElementById('main').classList.add('main_light');
@@ -23,6 +31,8 @@ if (mode=='dark')  {
   change_mode_button.classList.add('button_light');
   clear_button.classList.remove('button_dark');
   clear_button.classList.add('button_light');
+  download_button.classList.remove('button_dark');
+  download_button.classList.add('button_light');
 }
 
 textarea.oninput = function() {
@@ -41,6 +51,8 @@ change_mode_button.onclick = function(){
     change_mode_button.classList.add('button_dark');
     clear_button.classList.remove('button_light');
     clear_button.classList.add('button_dark');
+    download_button.classList.remove('button_light');
+    download_button.classList.add('button_dark');
     localStorage.setItem('mode', 'dark');
   } else {
     document.getElementById('main').classList.remove('main_dark');
@@ -53,10 +65,21 @@ change_mode_button.onclick = function(){
     change_mode_button.classList.add('button_light');
     clear_button.classList.remove('button_dark');
     clear_button.classList.add('button_light');
+    download_button.classList.remove('button_dark');
+    download_button.classList.add('button_light');
     localStorage.setItem('mode', 'light');
   }
 }
 clear_button.onclick = function(){
   textarea.value = '';
   localStorage.setItem('note', '');
+}
+download_button.onclick = function(){
+  var date = new Date();
+  const link = document.createElement("a");
+  const file = new Blob([textarea.value], { type: 'text/plain' });
+  link.href = URL.createObjectURL(file);
+  link.download = "note(" + date.getDate() +"."+ date.getMonth() + "." + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ").txt";
+  link.click();
+  URL.revokeObjectURL(link.href);
 }
