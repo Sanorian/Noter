@@ -20,19 +20,6 @@ if (mode=='dark')  {
   clear_button.classList.add('button_dark');
   download_button.classList.remove('button_light');
   download_button.classList.add('button_dark');
-} else {
-  document.getElementById('main').classList.remove('main_dark');
-  document.getElementById('main').classList.add('main_light');
-  document.getElementById('body').classList.remove('body_dark');
-  document.getElementById('body').classList.add('body_light');
-  textarea.classList.remove('textarea_dark');
-  textarea.classList.add('textarea_light');
-  change_mode_button.classList.remove('button_dark');
-  change_mode_button.classList.add('button_light');
-  clear_button.classList.remove('button_dark');
-  clear_button.classList.add('button_light');
-  download_button.classList.remove('button_dark');
-  download_button.classList.add('button_light');
 }
 
 textarea.oninput = function() {
