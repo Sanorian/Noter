@@ -79,7 +79,7 @@ function shareNote(){
     } else {
       document.getElementById("shareDiv").classList.add("sharePlaceExpandedDark");
     }
-    document.getElementsByTagName("code")[0].innerHTML += link;
+    document.getElementsByTagName("code")[0].innerHTML += makeLinkShorter(link);
   } else {
     if (document.getElementsByTagName("textarea")[0].getAttribute('class')=='textarea_light')  {
       document.getElementsByTagName("code")[0].innerHTML = '<button class="button_light" onclick="copyLink()">Copy</button>';
@@ -91,6 +91,19 @@ function shareNote(){
     document.getElementById("shareDiv").classList.add("sharePlaceRolled");
   }
 }
+
+function makeLinkShorter(link){
+  let newLink="";
+  if (link.length>50){
+    for (let i=0; i<50; i++){
+      newLink+=link[i];
+    }
+    return newLink+"...";
+  } else {
+    return link;
+  }
+}
+
 function copyLink(){
   navigator.clipboard.writeText(encodeURI(window.location.href+"?note="+document.getElementsByTagName("textarea")[0].value));
 }
