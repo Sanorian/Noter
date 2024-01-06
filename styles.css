@@ -45,6 +45,7 @@ button{
     border-radius: 5vmin;
     font-size: 4vmin;
     margin-bottom: 1vmin;
+    font-family: 'Nunito', sans-serif;
 }
 .button_light{
     color: #354259;
