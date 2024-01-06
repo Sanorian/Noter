@@ -6,20 +6,9 @@ let note,
   clear_button = document.getElementById('clear'),
   download_button=document.getElementById('download');
 
-textarea.textContent = (localNote ?? 'Try to write something');
+textarea.textContent = (localNote ?? '');
 if (mode=='dark')  {
-  document.getElementsByTagName('main')[0].classList.remove('main_light');
-  document.getElementsByTagName('main')[0].classList.add('main_dark');
-  document.getElementsByTagName('body')[0].classList.remove('body_light');
-  document.getElementsByTagName('body')[0].classList.add('body_dark');
-  textarea.classList.remove('textarea_light');
-  textarea.classList.add('textarea_dark');
-  change_mode_button.classList.remove('button_light');
-  change_mode_button.classList.add('button_dark');
-  clear_button.classList.remove('button_light');
-  clear_button.classList.add('button_dark');
-  download_button.classList.remove('button_light');
-  download_button.classList.add('button_dark');
+  setDarkTheme();
 }
 
 textarea.oninput = function() {
@@ -28,33 +17,9 @@ textarea.oninput = function() {
 }
 change_mode_button.onclick = function(){
   if (textarea.getAttribute('class')=='textarea_light')  {
-    document.getElementsByTagName('main')[0].classList.remove('main_light');
-    document.getElementsByTagName('main')[0].classList.add('main_dark');
-    document.getElementsByTagName('body')[0].classList.remove('body_light');
-    document.getElementsByTagName('body')[0].classList.add('body_dark');
-    textarea.classList.remove('textarea_light');
-    textarea.classList.add('textarea_dark');
-    change_mode_button.classList.remove('button_light');
-    change_mode_button.classList.add('button_dark');
-    clear_button.classList.remove('button_light');
-    clear_button.classList.add('button_dark');
-    download_button.classList.remove('button_light');
-    download_button.classList.add('button_dark');
-    localStorage.setItem('mode', 'dark');
+    setDarkTheme();
   } else {
-    document.getElementsByTagName('main')[0].classList.remove('main_dark');
-    document.getElementsByTagName('main')[0].classList.add('main_light');
-    document.getElementsByTagName('body')[0].classList.remove('body_dark');
-    document.getElementsByTagName('body')[0].classList.add('body_light');
-    textarea.classList.remove('textarea_dark');
-    textarea.classList.add('textarea_light');
-    change_mode_button.classList.remove('button_dark');
-    change_mode_button.classList.add('button_light');
-    clear_button.classList.remove('button_dark');
-    clear_button.classList.add('button_light');
-    download_button.classList.remove('button_dark');
-    download_button.classList.add('button_light');
-    localStorage.setItem('mode', 'light');
+    setLightTheme();
   }
 }
 clear_button.onclick = function(){
@@ -69,4 +34,36 @@ download_button.onclick = function(){
   link.download = "note(" + date.getDate() +"."+ date.getMonth() + "." + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ").txt";
   link.click();
   URL.revokeObjectURL(link.href);
+}
+
+function setDarkTheme(){
+  document.getElementsByTagName('main')[0].classList.remove('main_light');
+  document.getElementsByTagName('main')[0].classList.add('main_dark');
+  document.getElementsByTagName('body')[0].classList.remove('body_light');
+  document.getElementsByTagName('body')[0].classList.add('body_dark');
+  textarea.classList.remove('textarea_light');
+  textarea.classList.add('textarea_dark');
+  change_mode_button.classList.remove('button_light');
+  change_mode_button.classList.add('button_dark');
+  clear_button.classList.remove('button_light');
+  clear_button.classList.add('button_dark');
+  download_button.classList.remove('button_light');
+  download_button.classList.add('button_dark');
+  localStorage.setItem('mode', 'dark');
+}
+
+function setLightTheme(){
+  document.getElementsByTagName('main')[0].classList.remove('main_dark');
+  document.getElementsByTagName('main')[0].classList.add('main_light');
+  document.getElementsByTagName('body')[0].classList.remove('body_dark');
+  document.getElementsByTagName('body')[0].classList.add('body_light');
+  textarea.classList.remove('textarea_dark');
+  textarea.classList.add('textarea_light');
+  change_mode_button.classList.remove('button_dark');
+  change_mode_button.classList.add('button_light');
+  clear_button.classList.remove('button_dark');
+  clear_button.classList.add('button_light');
+  download_button.classList.remove('button_dark');
+  download_button.classList.add('button_light');
+  localStorage.setItem('mode', 'light');
 }
