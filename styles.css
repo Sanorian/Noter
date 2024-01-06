@@ -55,3 +55,32 @@ button{
     color: #DDE6ED;
     background-color: #526D82;
 }
+.buttonDiv{
+    display: flex;
+    flex-direction: row;
+}
+.sharePlaceRolled{
+    position: absolute;
+    visibility: collapse;
+    height: 0vmin;
+}
+.sharePlaceExpandedDark{
+    position: absolute;
+    height: 15vmin;
+    background-color: #27374D;
+    border: 0.2vmin solid #DDE6ED;
+    border-radius: 1vmin;
+    color: #DDE6ED;
+}
+.sharePlaceExpandedLight{
+    position: absolute;
+    height: 15vmin;
+    background-color: #D7C0AE;
+    border: 0.2vmin solid #354259;
+    border-radius: 1vmin;
+    color: #354259;
+}
+code{
+    display: flex;
+    flex-direction: row;
+}
