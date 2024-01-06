@@ -9,14 +9,22 @@
 </head>
 <body class="body_light">
     <main class="main_light">
-        <div class="mode_change">
-            <button id="change_mode" class="button_light">Change theme</button>
-            <button id="clear" class="button_light">Clear All</button>
-            <button id="download" class="button_light">Download this note</button>
+        <div class="buttonDiv">
+            <button class="button_light" onclick="changeTheme()">Change theme</button>
+            <button class="button_light" onclick="clearNote()">Clear All</button>
+            <button class="button_light" onclick="downloadNote()">Download</button>
+            <div>
+                <button class="button_light" onclick="shareNote()">Share</button>
+                <div class="sharePlaceRolled" id="shareDiv">
+                    <p>Send this url for share your note:</p>
+                    <code><button class="button_light" onclick="copyLink()">Copy</button></code>
+                </div>
+            </div>
         </div>
         <div class="main_space_light">
-            <textarea id="notes" class="textarea_light" placeholder="Try to write something"></textarea>
+            <textarea class="textarea_light" placeholder="Try to write something" oninput="saveNotes()"></textarea>
         </div>
+
     </main>
     <script src="http://localhost:8080/script"></script>
     <script src="app.js"></script>

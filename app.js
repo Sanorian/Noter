@@ -1,32 +1,39 @@
-let note, 
-  localNote = localStorage.getItem('note'), 
-  textarea = document.getElementById('notes'), 
-  change_mode_button = document.getElementById('change_mode'), 
-  mode=(localStorage.getItem('mode')??'light'), 
-  clear_button = document.getElementById('clear'),
-  download_button=document.getElementById('download');
+let localNote = localStorage.getItem('note'), 
+  textarea = document.getElementsByTagName("textarea")[0],
+  mode=(localStorage.getItem('mode')??'light');
 
-textarea.textContent = (localNote ?? '');
+const urlParams = new URLSearchParams(window.location.search);
+const linkedNote = decodeURI(urlParams.get('note'));
+if (linkedNote!=null && linkedNote!="" && linkedNote!="null") {
+  localStorage.setItem("oldNote", localNote);
+  textarea.textContent = (linkedNote ?? localNote ?? '');
+}
+else {
+  textarea.textContent = (localStorage.getItem("oldNote") ?? localNote ?? '');
+  localStorage.removeItem("oldNote");
+}
+
 if (mode=='dark')  {
   setDarkTheme();
 }
 
-textarea.oninput = function() {
+function saveNotes() {
   note = textarea.value;
   localStorage.setItem('note', note);
 }
-change_mode_button.onclick = function(){
+
+function changeTheme(){
   if (textarea.getAttribute('class')=='textarea_light')  {
     setDarkTheme();
   } else {
     setLightTheme();
   }
 }
-clear_button.onclick = function(){
+function clearNote(){
   textarea.value = '';
   localStorage.setItem('note', '');
 }
-download_button.onclick = function(){
+function downloadNote(){
   var date = new Date();
   const link = document.createElement("a");
   const file = new Blob([textarea.value], { type: 'text/plain' });
@@ -43,12 +50,10 @@ function setDarkTheme(){
   document.getElementsByTagName('body')[0].classList.add('body_dark');
   textarea.classList.remove('textarea_light');
   textarea.classList.add('textarea_dark');
-  change_mode_button.classList.remove('button_light');
-  change_mode_button.classList.add('button_dark');
-  clear_button.classList.remove('button_light');
-  clear_button.classList.add('button_dark');
-  download_button.classList.remove('button_light');
-  download_button.classList.add('button_dark');
+  Array.from(document.getElementsByTagName("button")).forEach((button)=>{
+    button.classList.remove('button_light');
+    button.classList.add('button_dark');
+  });
   localStorage.setItem('mode', 'dark');
 }
 
@@ -59,11 +64,34 @@ function setLightTheme(){
   document.getElementsByTagName('body')[0].classList.add('body_light');
   textarea.classList.remove('textarea_dark');
   textarea.classList.add('textarea_light');
-  change_mode_button.classList.remove('button_dark');
-  change_mode_button.classList.add('button_light');
-  clear_button.classList.remove('button_dark');
-  clear_button.classList.add('button_light');
-  download_button.classList.remove('button_dark');
-  download_button.classList.add('button_light');
+  Array.from(document.getElementsByTagName("button")).forEach((button)=>{
+    button.classList.remove('button_dark');
+    button.classList.add('button_light');
+  });
   localStorage.setItem('mode', 'light');
+}
+
+function shareNote(){
+  if (document.getElementById("shareDiv").getAttribute('class')=="sharePlaceRolled"){
+    const link = encodeURI(window.location.href+"?note="+document.getElementsByTagName("textarea")[0].value);
+    document.getElementById("shareDiv").classList.remove("sharePlaceRolled");
+    if (textarea.getAttribute('class')=='textarea_light')  {
+      document.getElementById("shareDiv").classList.add("sharePlaceExpandedLight");
+    } else {
+      document.getElementById("shareDiv").classList.add("sharePlaceExpandedDark");
+    }
+    document.getElementsByTagName("code")[0].innerHTML += link;
+  } else {
+    if (textarea.getAttribute('class')=='textarea_light')  {
+      document.getElementsByTagName("code")[0].innerHTML = '<button class="button_light" onclick="copyLink()">Copy</button>';
+      document.getElementById("shareDiv").classList.remove("sharePlaceExpandedLight");
+    } else {
+      document.getElementsByTagName("code")[0].innerHTML = '<button class="button_dark" onclick="copyLink()">Copy</button>';
+      document.getElementById("shareDiv").classList.remove("sharePlaceExpandedDark");
+    }
+    document.getElementById("shareDiv").classList.add("sharePlaceRolled");
+  }
+}
+function copyLink(){
+  navigator.clipboard.writeText(encodeURI(window.location.href+"?note="+document.getElementsByTagName("textarea")[0].value));
 }
