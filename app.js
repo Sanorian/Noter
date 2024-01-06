@@ -8,10 +8,10 @@ let note,
 
 textarea.textContent = (localNote ?? 'Try to write something');
 if (mode=='dark')  {
-  document.getElementById('main').classList.remove('main_light');
-  document.getElementById('main').classList.add('main_dark');
-  document.getElementById('body').classList.remove('body_light');
-  document.getElementById('body').classList.add('body_dark');
+  document.getElementsByTagName('main')[0].classList.remove('main_light');
+  document.getElementsByTagName('main')[0].classList.add('main_dark');
+  document.getElementsByTagName('body')[0].classList.remove('body_light');
+  document.getElementsByTagName('body')[0].classList.add('body_dark');
   textarea.classList.remove('textarea_light');
   textarea.classList.add('textarea_dark');
   change_mode_button.classList.remove('button_light');
@@ -28,10 +28,10 @@ textarea.oninput = function() {
 }
 change_mode_button.onclick = function(){
   if (textarea.getAttribute('class')=='textarea_light')  {
-    document.getElementById('main').classList.remove('main_light');
-    document.getElementById('main').classList.add('main_dark');
-    document.getElementById('body').classList.remove('body_light');
-    document.getElementById('body').classList.add('body_dark');
+    document.getElementsByTagName('main')[0].classList.remove('main_light');
+    document.getElementsByTagName('main')[0].classList.add('main_dark');
+    document.getElementsByTagName('body')[0].classList.remove('body_light');
+    document.getElementsByTagName('body')[0].classList.add('body_dark');
     textarea.classList.remove('textarea_light');
     textarea.classList.add('textarea_dark');
     change_mode_button.classList.remove('button_light');
@@ -42,10 +42,10 @@ change_mode_button.onclick = function(){
     download_button.classList.add('button_dark');
     localStorage.setItem('mode', 'dark');
   } else {
-    document.getElementById('main').classList.remove('main_dark');
-    document.getElementById('main').classList.add('main_light');
-    document.getElementById('body').classList.remove('body_dark');
-    document.getElementById('body').classList.add('body_light');
+    document.getElementsByTagName('main')[0].classList.remove('main_dark');
+    document.getElementsByTagName('main')[0].classList.add('main_light');
+    document.getElementsByTagName('body')[0].classList.remove('body_dark');
+    document.getElementsByTagName('body')[0].classList.add('body_light');
     textarea.classList.remove('textarea_dark');
     textarea.classList.add('textarea_light');
     change_mode_button.classList.remove('button_dark');
