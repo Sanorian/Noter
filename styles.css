@@ -80,6 +80,12 @@ button{
     border-radius: 1vmin;
     color: #354259;
 }
+.sharePlaceExpandedLight p{
+    font-family: 'Nunito', sans-serif;
+}
+.sharePlaceExpandedLight p{
+    font-family: 'Nunito', sans-serif;
+}
 code{
     display: flex;
     flex-direction: row;
